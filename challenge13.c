@@ -1,15 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int nombre, i;
+    int nombre, i,bin;
 
     printf("Entrez un nombre : ");
     scanf("%d", &nombre);
     printf("Valeur en hexadecimal : 0x%X\n", nombre);
     printf("La valeur en binaire : ");
-    for (i = 31; i >= 0; i--) {
-        printf("%d", (nombre >> i) & 1);
-    }
+  while (nombre != 0)
+{
+  bin = nombre % 2;
+  nombre = nombre / 2;
+  printf("%d",bin);
 
+}
     return 0;
 }

@@ -1,25 +1,31 @@
-#include <stdio.h> 
+#include <stdio.h>
 
 int main() {
-    int nombre; 
-   
-    printf("Entrez un nombre entier : ");
-    scanf("%d", &nombre); // Lecture du nombre
+    int nombre, reste;
+    int binaire[32]; // Tableau pour stocker les bits
+    int i = 0;
 
-    // Afficher la valeur en hexadécimal
-    printf("Valeur hexadécimale : 0x%X\n", nombre);
+    // Demander à l'utilisateur d'entrer un entier
+    printf("Entrez un entier: ");
+    scanf("%d", &nombre);
 
-    // Afficher la valeur en binaire
-    printf("Valeur binaire : ");
-    for (int i = 31; i >= 0; i--) { // Boucle pour chaque bit
-        // Si le bit i est 1, afficher 1, sinon afficher 0
-        if (nombre & (1 << i)) {
-            printf("1");
-        } else {
-            printf("0");
-        }
+    // Conversion en binaire
+    int temp = nombre; // Sauvegarder la valeur originale
+    while (temp > 0) {
+        reste = temp % 2; // Récupérer le reste de la division par 2
+        binaire[i] = reste; // Stocker le bit
+        temp = temp / 2; // Diviser par 2
+        i++;
     }
-    printf("\n"); // Nouvelle ligne après l'affichage
 
-    return 0; 
+    // Afficher le résultat binaire en ordre inverse
+    printf("Binaire: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binaire[j]);
+    }
+    printf("\n");
+
+    printf("Hexadécimal: %X\n", nombre);
+
+    return 0;
 }

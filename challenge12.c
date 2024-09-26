@@ -1,4 +1,4 @@
-#include <stdio.h> //la bibliothèque standard pour les entrées/sorties
+#include <stdio.h> 
 
 int main() {
     int nombre;
